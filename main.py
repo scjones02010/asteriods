@@ -41,8 +41,14 @@ def main():
         
         for sprite in drawable:
             sprite.draw(screen)
+        
+        for asteriod in asteroids:
+            if asteriod.collision_detection(player):
+                print('Game Over')
+                return
 
         pygame.display.flip()
+
     return
 
 if __name__=='__main__':
