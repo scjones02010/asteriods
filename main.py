@@ -44,11 +44,19 @@ def main():
         
         for sprite in drawable:
             sprite.draw(screen)
+
+
         
         for asteriod in asteroids:
             if asteriod.collision_detection(player):
                 print('Game Over')
                 return
+        
+        for asteriod in asteroids:
+            for shot in shots_group:
+                if asteriod.collision_detection(shot):
+                    shot.kill()
+                    asteriod.kill()
 
         pygame.display.flip()
 
